@@ -1,0 +1,23 @@
+git init
+git branch -M develop
+git branch
+git commit -m "first commit"
+git remote add origin git@github.com:pghanto432/stream-api-tutorial.git
+git push -u origin develop
+
+
+git init
+git branch -M develop
+git branch
+git commit -m "Springboot security demo project"
+git remote add origin git@github.com:pghanto432/spring-boot-security-demo.git
+git push -u origin develop
+
+git init
+git branch -M main
+git remote add origin git@github.com:pghanto432/springboot-mongodb.git
+git add .
+git status
+git branch
+git commit -m "Springboot MongoDB example"
+git push -u origin main

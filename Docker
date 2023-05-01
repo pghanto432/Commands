@@ -1,0 +1,5 @@
+docker ps
+docker run --env MYSQL_ROOT_PASSWORD=my-secret-pw --detach mysql
+docker pull --platform linux/x86_64 mysql
+docker exec -it test_db bash
+docker logs test_db

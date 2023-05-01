@@ -1,0 +1,73 @@
+GROUP BY is a clause in SQL that is used to group rows that have the same values in one or more columns.
+
+Here are some common group by functions in SQL:
+############################
+
+COUNT(): Returns the number of rows in each group.
+
+SELECT department, COUNT(*) FROM employees GROUP BY department;
+SUM(): Returns the total sum of a numeric column in each group.
+
+SELECT department, SUM(salary) FROM employees GROUP BY department;
+AVG(): Returns the average value of a numeric column in each group.
+
+SELECT department, AVG(salary) FROM employees GROUP BY department;
+MAX(): Returns the maximum value of a column in each group.
+
+SELECT department, MAX(salary) FROM employees GROUP BY department;
+MIN(): Returns the minimum value of a column in each group.
+
+SELECT department, MIN(salary) FROM employees GROUP BY department;
+HAVING: This function is used with GROUP BY to filter the groups based on a condition. It works like the WHERE clause, but operates on groups rather than individual rows.
+
+SELECT department, AVG(salary) as avg_salary FROM employees GROUP BY department HAVING AVG(salary) > 50000;
+The above example will only return departments where the average salary is greater than $50,000.
+
+Note that when using GROUP BY, any columns that are not in the GROUP BY clause must be aggregated with a function such as SUM, COUNT, AVG, MAX, or MIN.
+
+GroupBy with having clause example in sql
+#########################################
+
+Sure, here's an example of using the GROUP BY clause with the HAVING clause in SQL:
+
+Assume we have a table called orders that contains information about orders placed by customers, including the customer_id, order_date, and order_total. We want to find the customers who have placed at least 3 orders and whose total spending is greater than $500.
+
+SELECT customer_id, COUNT(*) as num_orders, SUM(order_total) as total_spending
+FROM orders
+GROUP BY customer_id
+HAVING COUNT(*) >= 3 AND SUM(order_total) > 500;
+
+In this example, we first group the rows in the orders table by customer_id,
+and then calculate the count of orders and the total spending for each customer.
+We then use the HAVING clause to filter the results to only include customers who have
+placed at least 3 orders and whose total spending is greater than $500.
+
+The result will be a table that shows the customer_id, the number of orders (num_orders),
+and the total spending (total_spending)
+for each customer who meets the criteria specified in the HAVING clause.
+
+####################################
+sql inner join with example
+####################################
+In SQL, INNER JOIN is used to combine rows from two or more tables based on a
+related column between them. Here's an example of using INNER JOIN in SQL:
+
+Assume we have two tables: customers and orders. The customers table contains
+information about customers, including their customer_id, first_name,
+and last_name. The orders table contains information about orders,
+including the order_id, order_date, order_total, and customer_id
+(which links to the customer_id in the customers table). We want to join the
+two tables to get a list of all orders along with the corresponding
+customer information.
+
+SELECT orders.order_id, orders.order_date, orders.order_total, customers.first_name, customers.last_name
+FROM orders
+INNER JOIN customers ON orders.customer_id = customers.customer_id;
+
+In this example, we use INNER JOIN to join the orders table with the customers table.
+The ON keyword is used to specify the join condition,
+which is that the customer_id in the orders table must match the customer_id in the customers table.
+
+The result will be a table that shows the order_id, order_date, order_total,
+first_name, and last_name for each order, with the customer information
+from the customers table included in the result.

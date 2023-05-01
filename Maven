@@ -1,0 +1,8 @@
+Aliases related to MAVEN
+############################
+alias mpb='echo "mvn clean install -Dmaven.skipTests -P master-build" && mvn clean install -Dmaven.skipTests -P master-build'
+alias mbstu='echo "mvn -U clean install -Dmaven.test.skip=true" && mvn -U clean install -Dmaven.test.skip=true'
+alias mbst='echo "mvn clean install -Dmaven.test.skip=true" && mvn clean install -Dmaven.test.skip=true'
+alias mbsfu='echo "mvn -U clean install -Dmaven.test.skip=false" && mvn -U clean install -Dmaven.test.skip=false'
+alias mbsf='echo "mvn clean install -Dmaven.test.skip=false" && mvn clean install -Dmaven.test.skip=false'
+alias dt='echo "mvn dependency:tree >> dt.txt" && mvn dependency:tree >> dt.txt'
